@@ -1,12 +1,13 @@
-import React from "react";
 import MainView from "./MainView";
+import React, { Component } from 'react'
 
-function App() {
-  return (
-    <div>
-      <MainView />
-    </div>
-  );
-}
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <MainView />
+      </div>
+    );
+  };
+};
 
-export default App;

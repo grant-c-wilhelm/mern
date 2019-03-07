@@ -1,14 +1,32 @@
 import React, { Component } from "react";
-import Joke from "./Joke";
-import jokeData from "./jokeData";
-
+import Todo from "./Todo";
+import todosData from "./todosData";
+import Header from "./Header";
+import Greeting from "./Greeting";
 
 function MainView() {
-  const jokeComponent = jokeData.map(joke => {
-    return <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />;
+  const todosComponent = todosData.map(todo => {
+    return (
+      <Todo
+        key={todo.id}
+        description={todo.description}
+        completed={todo.completed}
+      />
+    );
   });
 
-  return <div>{jokeComponent}</div>;
+  return (
+    <div>
+      <Header userName="Grant" /> <Greeting />
+      {todosComponent}
+    </div>
+  );
 }
 
 export default MainView;
+
+// const jokeComponent = jokeData.map(joke => {
+//   return <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />;
+// });
+
+// return <div>{jokeComponent}</div>;
