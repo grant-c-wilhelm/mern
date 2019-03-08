@@ -1,26 +1,40 @@
 import React, { Component } from "react";
-import Todo from "./Todo";
+import TodoItem from "./TodoItem";
 import todosData from "./todosData";
 import Header from "./Header";
-import Greeting from "./Greeting";
+import State from "./State";
+import Counter from "./Counter";
 
-function MainView() {
-  const todosComponent = todosData.map(todo => {
+class MainView extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      todos: todosData
+    }
+  }
+  render() {
+    function handleClick(){
+
+    }
+    const todosComponent = this.state.todos.map(todo => {
+      return (
+        <TodoItem
+          key={todo.id}
+          description={todo.description}
+          completed={todo.completed}
+        />
+      );
+    });
+
     return (
-      <Todo
-        key={todo.id}
-        description={todo.description}
-        completed={todo.completed}
-      />
+      <div>
+        <Header userName="Grant" />
+        {todosComponent}
+        <State />
+        <Counter/>
+      </div>
     );
-  });
-
-  return (
-    <div>
-      <Header userName="Grant" /> <Greeting />
-      {todosComponent}
-    </div>
-  );
+  }
 }
 
 export default MainView;
