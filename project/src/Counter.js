@@ -9,7 +9,11 @@ export default class Counter extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    this.setState({ count: this.state.count + 1 });
+    this.setState(prevState => {
+      return {
+        count: prevState.count + 1
+      };
+    });
   }
   render() {
     return (
