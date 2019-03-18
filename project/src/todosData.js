@@ -1,35 +1,29 @@
 const todosData = [
   {
     id: 1,
-    description: "Bobs Scrimba",
-    completed: false
+    text: "Take out the trash",
+    completed: true
   },
   {
     id: 2,
-    description: "Yoga",
-    completed: true
+    text: "Grocery shopping",
+    completed: false
   },
   {
     id: 3,
-    description: "Lunch",
-    completed: true
+    text: "Clean gecko tank",
+    completed: false
   },
   {
     id: 4,
-    description: "Jobs applying",
+    text: "Mow lawn",
     completed: true
   },
   {
     id: 5,
-    description: "Clean Bathroom",
-    completed: false
-  },
-  {
-    id: 6,
-    description: "Yoga ROUND TWO!",
+    text: "Catch up on Arrested Development",
     completed: false
   }
 ];
+
 export default todosData;
-
-

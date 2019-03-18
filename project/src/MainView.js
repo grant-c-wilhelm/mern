@@ -5,42 +5,58 @@ import Header from "./Header";
 import State from "./State";
 import Counter from "./Counter";
 
-class MainView extends React.Component {
-  constructor(){
+class App extends React.Component {
+  constructor() {
     super();
     this.state = {
       todos: todosData
-    }
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(id) {
+    this.setState(prevState => {
+      const updatedTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      });
+      return updatedTodos;
+    });
   }
   render() {
-    function handleClick(){
-
-    }
-    const todosComponent = this.state.todos.map(todo => {
-      return (
-        <TodoItem
-          key={todo.id}
-          description={todo.description}
-          completed={todo.completed}
-        />
-      );
-    });
-
-    return (
-      <div>
-        <Header userName="Grant" />
-        {todosComponent}
-        <State />
-        <Counter/>
-      </div>
-    );
+    const todoItems = this.state.todos.map(item => (
+      <TodoItem key={item.id} item={item} handleChange={this.handleChange} />
+    ));
+    return <div>{todoItems}</div>;
   }
 }
 
-export default MainView;
+export default App;
+// constructor() {
+//   super();
+//   this.state = {
+//     todos: todosData
+//   };
+//   this.handleChange = this.handleChange.bind(this);
+// }
 
-// const jokeComponent = jokeData.map(joke => {
-//   return <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine} />;
-// });
+// handleChange(id) {
+//   this.setState(prevState => {
+//     const updatedTodos = prevState.todos.map(todo => {
+//       if (todo.id === id) {
+//         todo.completed = !todo.completed;
+//       }
+//       return todo;
+//     });
+//     return { todos: updatedTodos };
+//   });
+// }
 
-// return <div>{jokeComponent}</div>;
+// render() {
+//   const todoItems = this.state.todos.map(item => (
+//     <TodoItem key={item.id} item={item} handleChange={this.handleChange} />
+//   ));
+
+//   return <div className="todo-list">{todoItems}</div>;
+// }

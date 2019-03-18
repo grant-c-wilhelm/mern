@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-export default class Header extends React.Component {
-    render() {
-        return (
-            <header>
-                <p>Welcome, {this.props.userName}</p>
-            </header>
-        )
-    }
+export default class Header extends Component {
+  render() {
+    return (
+      <header>
+        <p>Welcome, {this.props.userName}</p>
+      </header>
+    );
+  }
 }
