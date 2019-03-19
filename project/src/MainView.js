@@ -21,7 +21,7 @@ class App extends React.Component {
         }
         return todo;
       });
-      return updatedTodos;
+      return { todos: updatedTodos };
     });
   }
   render() {
@@ -33,6 +33,7 @@ class App extends React.Component {
 }
 
 export default App;
+
 // constructor() {
 //   super();
 //   this.state = {
@@ -40,7 +41,6 @@ export default App;
 //   };
 //   this.handleChange = this.handleChange.bind(this);
 // }
-
 // handleChange(id) {
 //   this.setState(prevState => {
 //     const updatedTodos = prevState.todos.map(todo => {
@@ -49,14 +49,12 @@ export default App;
 //       }
 //       return todo;
 //     });
-//     return { todos: updatedTodos };
+//     return updatedTodos;
 //   });
 // }
-
 // render() {
 //   const todoItems = this.state.todos.map(item => (
 //     <TodoItem key={item.id} item={item} handleChange={this.handleChange} />
 //   ));
-
-//   return <div className="todo-list">{todoItems}</div>;
+//   return <div>{todoItems}</div>;
 // }
